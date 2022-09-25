@@ -1,0 +1,76 @@
+services:
+  minio:
+    image: minio/minio:latest
+    restart: always
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    command: server /data
+    networks:
+      - app-network
+    expose:
+      - 9000
+    volumes:
+      - data:/data
+      - config:/root/.minio/
+
+  minio-client:
+    build: ./minio-clinet/.
+    ports:
+      - 9002:9002
+    restart: always
+    networks:
+      - app-network
+    depends_on:
+      - minio
+
+  labwebdb:
+    image: mysql:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=LabWebSampleRootPasswd
+      - MYSQL_DATABASE=lab_web_sample
+      - MYSQL_USER=LABWEBLABWEB
+      - MYSQL_PASSWORD=LabWebSampleSosd23333
+    networks:
+      - app-network
+    expose:
+      - 3306
+    ports:
+      - 3006:3306
+
+  labwebredis:
+    image: redis:latest
+    volumes:
+      - datadir:/data
+      - redis.conf:/usr/local/etc/redis/redis.conf
+      - logs:/logs
+    expose:
+      - 6379
+
+  labwebapi:
+    build: ./LabWeb.API/.
+    ports:
+      - 8081:8080
+    restart: always
+    networks:
+      - app-network
+    depends_on:
+      - labwebdb
+      - labwebredis
+
+volumes:
+  db_data:
+  data:
+  config:
+  datadir:
+  redis.conf:
+  logs:
+
+
+networks:
+  app-network:
+    name: lab-web-network
+    driver: bridge

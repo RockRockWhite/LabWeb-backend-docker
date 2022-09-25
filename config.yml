@@ -1,0 +1,27 @@
+AppDebug: true   # 调试模式
+
+HttpServer:
+  Addr: "http://localhost"
+  Port: ":9002" # 网站运行端口号
+
+Logger:
+  LogFile: "minio-client.log"
+  Console: "enable" # 开关命令行输出 enable or disable
+
+Jwt:
+  Secret: "45724eb48f50e31a094492c3a07f8ea5957625d679f8ffb8fbe9ed48fe69a2ee"
+  Issuer: "RockRockWhite"
+  ExpireDays: 14
+
+Minio: # 此处位Minio储存库的配置
+  Endpoint: "minio:9000"
+  AccessKeyID: "minioadmin"
+  SecretAccessKey: "minioadmin"
+  Bucket: "miniotest"
+
+Minio-Client: # 此处为访问Minio客户端的配置
+  AccessKeyID: "minioadmin"
+  SecretAccessKey: "minioadmin"
+
+Document:
+  Url: "https://github.com/RockRockWhite/minio-client"
