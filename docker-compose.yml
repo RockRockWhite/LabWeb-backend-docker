@@ -17,7 +17,7 @@ services:
   minio-client:
     build: ./minio-clinet/.
     ports:
-      - 9001:9002
+      - 9001:9001
     restart: always
     networks:
       - app-network
