@@ -17,7 +17,7 @@ services:
   minio-client:
     build: ./minio-clinet/.
     ports:
-      - 9002:9002
+      - 9001:9002
     restart: always
     networks:
       - app-network
@@ -53,7 +53,7 @@ services:
   labwebapi:
     build: ./LabWeb.API/.
     ports:
-      - 8081:8080
+      - 8080:8080
     restart: always
     networks:
       - app-network
