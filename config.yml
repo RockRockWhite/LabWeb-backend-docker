@@ -1,8 +1,8 @@
 AppDebug: true   # 调试模式
 
 HttpServer:
-  Addr: "http://localhost"
-  Port: ":9002" # 网站运行端口号
+  Addr: "http://rockrockwhite.cn"
+  Port: ":9001" # 网站运行端口号
 
 Logger:
   LogFile: "minio-client.log"
