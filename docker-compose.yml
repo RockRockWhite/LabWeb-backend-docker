@@ -11,8 +11,8 @@ services:
     expose:
       - 9000
     volumes:
-      - data:/data
-      - config:/root/.minio/
+      - minio_data:/data
+      - minio_config:/root/.minio/
 
   minio-client:
     build: ./minio-clinet/.
@@ -46,9 +46,9 @@ services:
     networks:
       - app-network
     volumes:
-      - datadir:/data
-      - redis.conf:/usr/local/etc/redis/redis.conf
-      - logs:/logs
+      - redis_datadir:/data
+      - redis_redis.conf:/usr/local/etc/redis/redis.conf
+      - redis_logs:/logs
     expose:
       - 6379
 
@@ -64,12 +64,12 @@ services:
       - labwebredis
 
 volumes:
+  minio_data:
+  minio_config:
   db_data:
-  data:
-  config:
-  datadir:
-  redis.conf:
-  logs:
+  redis_datadir:
+  redis_redis.conf:
+  redis_logs:
 
 
 networks:
