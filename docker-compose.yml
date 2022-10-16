@@ -15,7 +15,7 @@ services:
       - minio_config:/root/.minio/
 
   minio-client:
-    build: ./minio-clinet/.
+    build: ./minio-client/.
     ports:
       - 9001:9001
     restart: always
