@@ -1,6 +1,3 @@
 [submodule "LabWeb.API"]
 	path = LabWeb.API
 	url = https://github.com/RockRockWhite/LabWeb.API.git
-[submodule "minio-clinet"]
-	path = minio-clinet
-	url = https://github.com/RockRockWhite/minio-clinet.git
