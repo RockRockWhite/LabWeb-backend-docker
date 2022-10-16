@@ -1,3 +1,6 @@
 [submodule "LabWeb.API"]
 	path = LabWeb.API
 	url = https://github.com/RockRockWhite/LabWeb.API.git
+[submodule "minio-client"]
+	path = minio-client
+	url = https://github.com/RockRockWhite/minio-client
