@@ -45,6 +45,7 @@ services:
     image: redis:latest
     networks:
       - app-network
+    restart: always
     volumes:
       - redis_datadir:/data
       - redis_redis.conf:/usr/local/etc/redis/redis.conf
